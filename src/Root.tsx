@@ -1,25 +1,15 @@
-import "./index.css";
-import { Composition, staticFile } from "remotion";
-import {
-  CaptionedVideo,
-  calculateCaptionedVideoMetadata,
-  captionedVideoSchema,
-} from "./CaptionedVideo";
-
-// Each <Composition> is an entry in the sidebar!
+import { Composition } from 'remotion';
+import { MyComposition } from './MyComposition';
 
 export const RemotionRoot: React.FC = () => {
   return (
     <Composition
-      id="CaptionedVideo"
-      component={CaptionedVideo}
-      calculateMetadata={calculateCaptionedVideoMetadata}
-      schema={captionedVideoSchema}
+      id="MyComposition"
+      component={MyComposition}
+      durationInFrames={330} // tổng độ dài = 11 giây * 30 fps
+      fps={30}
       width={1080}
-      height={1920}
-      defaultProps={{
-        src: staticFile("sample-video.mp4"),
-      }}
+      height={1920} // chiều cao dọc
     />
   );
 };
