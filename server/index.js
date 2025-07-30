@@ -18,8 +18,9 @@ app.post('/api/render', upload.fields([
   { name: 'audios', maxCount: 10 },
 ]), async (req, res) => {
   try {
-    const videoFiles = req.files['videos'].map(file => `/public/${file.filename}`);
-    const audioFiles = req.files['audios'].map(file => `/public/${file.filename}`);
+   const videoFiles = req.files['videos'].map(file => `/public/${file.filename}`);
+    const audioFiles = req.files['audios']? req.files['audios'].map(file => `/public/${file.filename}`): [];
+
 
     const outName = `out-${Date.now()}.mp4`;
     const outPath = path.join(__dirname, `../public/${outName}`);

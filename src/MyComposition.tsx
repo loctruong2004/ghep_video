@@ -67,7 +67,7 @@ export const MyComposition: React.FC<MyCompositionProps> = ({ videoSources, audi
   return (
     <AbsoluteFill style={{ backgroundColor: 'black' }}>
       {/* Phát audio nối tiếp nhau */}
-      {audioSources.map((src, i) => {
+      {audioSources.length > 0 && audioSources.map((src, i) => {
         const duration = audioDurations[i];
         const audioSequence = (
           <Sequence key={i} from={currentFrame_audio} durationInFrames={duration}>
